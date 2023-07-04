@@ -1,0 +1,19 @@
+DAY1 ARRAY Q2
+Link:https://leetcode.com/problems/pascals-triangle/description/
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+      List<List<Integer>>row=new ArrayList<>();
+      int j,i;
+      for(i=0;i<numRows;i++){
+          List<Integer>col=new ArrayList<>();
+          for(j=0;j<=i;j++){
+              if(j==0 || j==i) col.add(1);
+              else{
+                  col.add(j,row.get(i-1).get(j)+row.get(i-1).get(j-1));
+              }
+          }
+          row.add(col);
+      }
+      return row;  
+    }
+}

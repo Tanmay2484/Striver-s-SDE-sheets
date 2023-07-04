@@ -17,3 +17,28 @@ class Solution {
       return row;  
     }
 }
+//ncr method 
+public class Main {
+    public static int factor(int n){
+        if(n==0) return 1;
+
+        return n*factor(n-1);
+    }
+    public static int ncr(int n,int r){
+        return (int)(factor(n)/factor(r)/factor(n-r));
+    }
+    public static void pascal(int n){
+        int i,j;
+        for(i=0;i<n;i++){
+            for(j=0;j<=i;j++){
+                System.out.print(ncr(i,j));System.out.print(" ");
+                
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String args[]) {
+        Main ob=new Main();
+            ob.pascal(5);
+    }
+}

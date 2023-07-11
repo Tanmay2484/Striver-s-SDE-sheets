@@ -1,0 +1,31 @@
+75. Sort Colors
+Link:https://leetcode.com/problems/sort-colors/description/
+
+//dutch national problem
+class Solution {
+    public static void swap(int []a,int i,int j){
+        int temp=a[i];
+        a[i]=a[j];
+        a[j]=temp;
+    }
+
+    public void sortColors(int[] nums) {
+        int low=0,mid=0,n=nums.length;
+        int high=n-1;
+        while(mid<=high){
+            if(nums[mid]==2)//mid to upper renge
+            {
+                swap(nums,mid,high);
+                high--;
+            }
+            else if(nums[mid]==0)//lower renge
+            {
+                swap(nums,low,mid);
+                low++;mid++;
+            }
+            else{
+                mid++;
+            }
+        }
+    }
+}

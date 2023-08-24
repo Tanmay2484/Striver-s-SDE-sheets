@@ -1,0 +1,40 @@
+reverse-words-in-a-string
+link: https://leetcode.com/problems/reverse-words-in-a-string/description/
+class Solution {
+    public String reverseWords(String s) {    
+      s=s.trim();
+      int l=0,r=s.length()-1;
+      String temp="",result="";
+      char chr;
+      
+      while(l<=r){
+          chr=s.charAt(l);
+          if(chr!=' '){
+              temp=temp+chr;
+             
+          }
+          else if(chr==' '){
+              if(result.isEmpty()){
+                  result=temp.trim();
+                  
+              }
+              else{
+                  result=temp.trim()+" "+result.trim();
+            
+              }
+              temp="";
+          }
+          l++;
+      }
+      if(!temp.isEmpty()){
+          if(!result.isEmpty()){
+              result=temp.trim()+" "+result.trim();
+               
+          }
+          else{
+              result=temp.trim();
+          }
+      }
+      return result;
+    }
+}
